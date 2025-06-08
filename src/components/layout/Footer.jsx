@@ -61,12 +61,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p className="flex items-center justify-center space-x-1">
-            <span>Made with</span>
-            <Heart className="h-4 w-4 text-red-500" />
-            <span>using React & JavaScript</span>
-          </p>
-          <p className="mt-2">© 2024 Saurav Luitel. All rights reserved.</p>
+          <p className="mt-2">© 2025 Saurav Luitel. All rights reserved.</p>
         </div>
       </div>
     </footer>

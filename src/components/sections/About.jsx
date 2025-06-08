@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Code, Palette, Zap, Users } from 'lucide-react';
 import Card from '../ui/Card';
-
+import profile from '/src/images/Saurav-DV.jpg';
 const About = () => {
   const skills = [
     {
@@ -61,7 +61,7 @@ const About = () => {
             viewport={{ once: true }}
           >
             <img
-              src="https://images.pexels.com/photos/3785077/pexels-photo-3785077.jpeg?auto=compress&cs=tinysrgb&w=800"
+              src={profile}
               alt="Saurav Luitel - Frontend Developer"
               className="rounded-2xl shadow-2xl w-full max-w-md mx-auto"
             />
