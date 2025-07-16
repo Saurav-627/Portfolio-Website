@@ -9,7 +9,7 @@ const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState('all');
   const [visibleProjects, setVisibleProjects] = useState(6);
 
-  const categories = ['all', 'featured', 'web', 'mobile', 'fullstack'];
+  const categories = ['all', 'featured'];
   
   const filteredProjects = selectedCategory === 'all' 
     ? projects 

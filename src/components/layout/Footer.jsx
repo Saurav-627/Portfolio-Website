@@ -16,7 +16,7 @@ const Footer = () => {
           <div>
             <h3 className="text-2xl font-bold mb-4">Saurav Luitel</h3>
             <p className="text-gray-400 mb-4">
-              Frontend developer creating modern web experiences with React and JavaScript.
+              Fullstack developer creating modern web experiences with React and Node.
             </p>
             <div className="flex space-x-4">
               {socialLinks.map(({ icon: Icon, href, label }) => (

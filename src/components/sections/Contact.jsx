@@ -21,14 +21,29 @@ const Contact = () => {
   const onSubmit = async (data) => {
     setIsSubmitting(true);
     setSubmitStatus('idle');
-
+  
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      console.log('Form submitted:', data);
-      setSubmitStatus('success');
-      reset();
+      const response = await fetch('https://formspree.io/f/mvojlpbk', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          subject: data.subject,
+          message: data.message
+        })
+      });
+  
+      if (response.ok) {
+        console.log('Form submitted:', data);
+        setSubmitStatus('success');
+        reset();
+      } else {
+        console.error('Form submission failed');
+        setSubmitStatus('error');
+      }
     } catch (error) {
       console.error('Form submission error:', error);
       setSubmitStatus('error');
@@ -36,6 +51,7 @@ const Contact = () => {
       setIsSubmitting(false);
     }
   };
+  
 
   const contactInfo = [
     {
@@ -127,13 +143,13 @@ const Contact = () => {
                   />
                 </div>
 
-                <Input
+                {/* <Input
                   label="Subject"
                   placeholder="What's this about?"
                   {...register('subject', { required: 'Subject is required' })}
                   error={errors.subject?.message}
                   required
-                />
+                /> */}
 
                 <TextArea
                   label="Message"

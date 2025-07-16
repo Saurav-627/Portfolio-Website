@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, Palette, Zap, Users } from 'lucide-react';
+import { Code, Palette, Zap, Users, Server } from 'lucide-react';
 import Card from '../ui/Card';
 import profile from '/src/images/Saurav-DV.jpg';
 const About = () => {
@@ -9,6 +9,11 @@ const About = () => {
       icon: Code,
       title: 'Frontend Development',
       description: 'Expert in React.js, JavaScript, TypeScript, and modern web technologies.'
+    },
+    {
+      icon: Server,
+      title: 'Backend Development',
+      description: 'Experienced in Node.js, Express.js, REST APIs, and database integration with MongoDB, MySQL and PostgreSQL.'
     },
     {
       icon: Palette,
@@ -30,7 +35,7 @@ const About = () => {
   const technologies = [
     'JavaScript', 'TypeScript', 'React.js', 'HTML5', 'CSS3', 'SCSS',
     'Tailwind CSS', 'Node.js', 'MySQL', 'Git', 'GitHub', 'Vite', 'Webpack',
-    'Docker', 'Figma', 'Visual Studio Code'
+    'Docker', 'Figma', 'Visual Studio Code', 'Lit', 'MongoDB', 'Express.js'
   ];
 
   return (
@@ -47,7 +52,7 @@ const About = () => {
             About Me
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            I'm a passionate frontend developer from Kathmandu, Nepal, currently pursuing my 
+            I'm a passionate fullsatck developer from Kathmandu, Nepal, currently pursuing my 
             Bachelor's in Computer Application. I specialize in creating modern, responsive 
             web applications with clean code and exceptional user experiences.
           </p>
@@ -80,7 +85,7 @@ const About = () => {
               experiences that solve real problems and delight users.
             </p>
             <p className="text-lg text-gray-600 dark:text-gray-300">
-              At Pocket Pandit, I've honed my skills in React.js development, working on 
+              At PocketPandit, I've honed my skills in React.js development, working on 
               both greenfield projects and legacy code optimization. I believe in writing 
               clean, maintainable code and staying updated with the latest industry trends.
             </p>
