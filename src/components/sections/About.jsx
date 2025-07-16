@@ -52,7 +52,7 @@ const About = () => {
             About Me
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            I'm a passionate fullsatck developer from Kathmandu, Nepal, currently pursuing my 
+            I'm a passionate fullstack developer from Kathmandu, Nepal, currently pursuing my 
             Bachelor's in Computer Application. I specialize in creating modern, responsive 
             web applications with clean code and exceptional user experiences.
           </p>
