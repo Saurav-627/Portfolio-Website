@@ -36,7 +36,7 @@ const Hero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto"
           >
-            Frontend Developer & React Specialist crafting modern web experiences 
+            Fullstack Developer crafting modern web experiences 
             with clean code and beautiful user interfaces.
           </motion.p>
 
