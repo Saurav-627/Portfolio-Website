@@ -2,7 +2,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Code, Palette, Zap, Users, Server } from 'lucide-react';
 import Card from '../ui/Card';
-import profile from '/src/images/Saurav-DV.jpg';
+import profile from '/src/images/portfolio.jpeg';
 const About = () => {
   const skills = [
     {
