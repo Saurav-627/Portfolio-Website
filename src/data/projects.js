@@ -33,6 +33,17 @@ export const projects = [
   },
   {
     id: '4',
+    title: 'Blog App',
+    description: 'Blog app using JSONplaceholder API and Tailwind CSS',
+    longDescription: 'A responsive blog application built with React.js, Tailwind CSS, and Redux/toolkit. Features include JSONplaceholder API integration, smooth animations, and optimized performance.',
+    image: '/my-blog-app.png',
+    techStack: ['React.js', 'JavaScript', 'Tailwind CSS', 'Redux/toolkit', 'Vite'],
+    liveUrl: 'https://my-blog-app-vjbx.onrender.com/',
+    githubUrl: 'https://github.com/Saurav-627/my-blog-app',
+    featured: true
+  },
+  {
+    id: '5',
     title: 'Portfolio Website',
     description: 'Personal portfolio showcasing frontend development skills',
     longDescription: 'A modern, responsive portfolio website built with React.js and TypeScript. Features smooth animations with Framer Motion, dark/light mode toggle, and optimized performance. Showcases projects, skills, and professional experience with clean, modern design.',
