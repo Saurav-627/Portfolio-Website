@@ -37,6 +37,8 @@ jobs:
           # Change './dist/' to './build/' if you aren't using Vite
           local-dir: ./dist/ 
           # Use '/' or the path provided by DepHost (e.g., /public_html/)
-          server-dir: / 
+          server-dir: ./htdocs/
+          protocol: ftp
+          port: 21 
           # This ensures old files not in your build are deleted from the server
           delete-clean: true
