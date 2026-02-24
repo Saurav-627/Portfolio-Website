@@ -1,0 +1,42 @@
+name: Production Deployment
+
+on:
+  push:
+    branches:
+      - main  # Trigger only when pushing to the main branch
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Fetch the latest code from GitHub
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      # 2. Setup Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20 # Use your preferred Node version
+          cache: 'npm'
+
+      # 3. Install dependencies and Build the React app
+      - name: Install & Build
+        run: |
+          npm install
+          npm run build
+
+      # 4. Sync the build folder to DepHost via FTP
+      - name: Deploy to DepHost
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          # Change './dist/' to './build/' if you aren't using Vite
+          local-dir: ./dist/ 
+          # Use '/' or the path provided by DepHost (e.g., /public_html/)
+          server-dir: / 
+          # This ensures old files not in your build are deleted from the server
+          delete-clean: true
