@@ -13,11 +13,11 @@ const TextArea = forwardRef(({
   ...props
 }, ref) => {
   return (
-    <div className={`space-y-1 ${className}`}>
+    <div className={`space-y-3 ${className}`}>
       {label && (
-        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+        <label className="block text-[10px] font-black uppercase tracking-[0.2em] opacity-40 ml-2">
           {label}
-          {required && <span className="text-red-500 ml-1">*</span>}
+          {required && <span className="text-primary-500 ml-1">*</span>}
         </label>
       )}
       <textarea
@@ -28,14 +28,13 @@ const TextArea = forwardRef(({
         placeholder={placeholder}
         required={required}
         rows={rows}
-        className={`w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors resize-vertical ${
-          error
-            ? 'border-red-500 focus:ring-red-500'
-            : 'border-gray-300 dark:border-gray-600 focus:border-blue-500'
-        } bg-white dark:bg-gray-700 text-gray-900 dark:text-white placeholder-gray-500 dark:placeholder-gray-400`}
+        className={`w-full px-8 py-5 bg-black/5 dark:bg-white/5 border-2 rounded-[1.5rem] outline-none transition-all font-bold placeholder:opacity-40 resize-none hover:bg-black/[0.08] dark:hover:bg-white/[0.08] ${error
+            ? 'border-rose-500/50'
+            : 'border-slate-100 dark:border-white/5 focus:border-primary-500'
+          }`}
         {...props}
       />
-      {error && <p className="text-red-500 text-sm">{error}</p>}
+      {error && <p className="text-rose-500 text-[10px] font-black uppercase tracking-widest ml-4">{error}</p>}
     </div>
   );
 });

@@ -4,13 +4,23 @@ export const projects = [
     title: 'Pocket Pandit Web Application',
     description: 'Company Project - Complete React.js web application built from scratch with modern architecture',
     longDescription: 'Company Project - A comprehensive web application developed at PocketPandit using React.js with clean, modular, and scalable architecture. Features include responsive design with SCSS, third-party library integrations, and optimized performance across all devices. Implemented modern styling techniques with mobile-first design principles.',
-    image: '/Pocketpandit-UI.png',
+    image: '/pocketpandit.png',
     techStack: ['React.js', 'TypeScript', 'SCSS', 'JavaScript', 'HTML5', 'CSS3'],
     liveUrl: 'https://pocketpandit.ai',
     featured: true
   },
   {
     id: '2',
+    title: 'trikonED',
+    description: 'Education application platform built with Django (MVT) and a responsive UI.',
+    longDescription: 'trikonED is a full-featured education application platform developed using Django’s Model-View-Template (MVT) architecture. The system enables students to explore global universities, manage application workflows, and access guidance on study abroad programs. It includes user authentication, dynamic content for university listings, blog and news sections, and an intuitive, responsive interface optimized for performance. The project is associated with the official trikonED company and serves real users in the international education space.',
+    image: '/trikoned.png',
+    techStack: ['Django', 'Python', 'HTML5', 'CSS3', 'JavaScript', 'PostgreSQL', 'REST APIs', 'Authentication'],
+    liveUrl: 'https://trikoned.com',
+    featured: true
+  },
+  {
+    id: '3',
     title: 'E-Commerce Website',
     description: 'Modern e-commerce interface with MERN stack and responsive design',
     longDescription: 'A fully responsive e-commerce web application built with the MERN stack, featuring product catalogs, shopping cart functionality, user authentication, and secure payment integration. Includes full CRUD operations within a dedicated admin dashboard. Styled with Tailwind CSS for rapid UI development and optimized for high performance across all devices.',
@@ -21,18 +31,18 @@ export const projects = [
     featured: true
   },
   {
-    id: '3',
+    id: '4',
     title: 'Doctor Appointment Booking System',
     description: 'Full-featured MERN stack web app for scheduling medical appointments',
     longDescription: 'A robust and scalable doctor appointment booking system developed using the MERN stack. Includes features like user and doctor authentication, appointment scheduling, real-time availability, and secure data handling. The admin dashboard supports full CRUD operations for users, doctors, and appointments. Fully responsive design implemented with Tailwind CSS, optimized for both desktop and mobile experiences.',
     image: '/Doctor-Appointment-Booking-System.png',
     techStack: ['MongoDB', 'Express.js', 'React.js', 'Node.js', 'Chakra UI', 'Redux'],
     liveUrl: 'https://doctor-appointment-booking-system-tjlr.onrender.com/',
-    githubUrl: 'https://github.com/Saurav-627/FourthSemProject.git', 
+    githubUrl: 'https://github.com/Saurav-627/FourthSemProject.git',
     featured: true,
   },
   {
-    id: '4',
+    id: '5',
     title: 'Blog App',
     description: 'Blog app using JSONplaceholder API and Tailwind CSS',
     longDescription: 'A responsive blog application built with React.js, Tailwind CSS, and Redux/toolkit. Features include JSONplaceholder API integration, smooth animations, and optimized performance.',
@@ -43,7 +53,7 @@ export const projects = [
     featured: true
   },
   {
-    id: '5',
+    id: '6',
     title: 'Portfolio Website',
     description: 'Personal portfolio showcasing frontend development skills',
     longDescription: 'A modern, responsive portfolio website built with React.js and TypeScript. Features smooth animations with Framer Motion, dark/light mode toggle, and optimized performance. Showcases projects, skills, and professional experience with clean, modern design.',

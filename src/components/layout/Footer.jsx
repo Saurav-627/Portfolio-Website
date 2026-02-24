@@ -1,5 +1,6 @@
 import React from 'react';
-import { Github, Linkedin, Twitter, Mail, Heart } from 'lucide-react';
+import { Github, Linkedin, Mail, Heart, Code, ArrowUpRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const socialLinks = [
@@ -8,60 +9,92 @@ const Footer = () => {
     { icon: Mail, href: 'mailto:sauravluitel.work@gmail.com', label: 'Email' }
   ];
 
+  const quickLinks = [
+    { name: 'Home', href: '/' },
+    { name: 'Projects', href: '/projects' },
+    { name: 'Blog', href: '/blog' }
+  ];
+
   return (
-    <footer className="bg-gray-900 dark:bg-gray-950 text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {/* Brand */}
-          <div>
-            <h3 className="text-2xl font-bold mb-4">Saurav Luitel</h3>
-            <p className="text-gray-400 mb-4">
-              Fullstack developer creating modern web experiences with React and Node.
+    <footer className="pt-16 md:pt-32 pb-8 md:pb-16 relative overflow-hidden transition-colors duration-300">
+      <div className="absolute bottom-0 left-0 w-full h-[300px] md:h-[400px] bg-gradient-to-t from-primary-500/5 to-transparent pointer-events-none"></div>
+
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-20 mb-16 md:mb-24">
+          {/* Brand & Vision */}
+          <div className="md:col-span-6 space-y-6 md:space-y-10">
+            <Link to="/" className="flex items-center space-x-4 group w-fit">
+              <div className="p-2.5 md:p-3 bg-primary-500 rounded-xl md:rounded-[1.25rem] group-hover:rotate-12 transition-transform shadow-lg shadow-primary-500/20">
+                <Code className="h-6 w-6 md:h-7 md:w-7 text-white" />
+              </div>
+              <span className="text-2xl md:text-3xl font-black tracking-tighter">SAURAV</span>
+            </Link>
+            <p className="text-lg md:text-2xl font-medium opacity-60 max-w-md leading-relaxed">
+              Designing and developing soulful digital experiences that merge elite architecture with human aesthetics.
             </p>
-            <div className="flex space-x-4">
+            <div className="flex space-x-4 md:space-x-5">
               {socialLinks.map(({ icon: Icon, href, label }) => (
                 <a
                   key={label}
                   href={href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="p-3.5 md:p-4 glass rounded-xl md:rounded-2xl transition-all duration-300 hover:scale-110 hover:text-primary-500 hover:shadow-xl hover:shadow-primary-500/10"
                   aria-label={label}
                 >
-                  <Icon className="h-6 w-6" />
+                  <Icon className="h-5 w-5 md:h-6 md:w-6" />
                 </a>
               ))}
             </div>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-2 text-gray-400">
-              <li><a href="/" className="hover:text-white transition-colors">Home</a></li>
-              <li><a href="/projects" className="hover:text-white transition-colors">Projects</a></li>
-              <li><a href="/blog" className="hover:text-white transition-colors">Blog</a></li>
-              <li><a href="#contact" className="hover:text-white transition-colors">Contact</a></li>
+          <div className="md:col-span-3 space-y-6 md:space-y-10">
+            <h4 className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] opacity-40">Navigation</h4>
+            <ul className="space-y-4 md:space-y-6">
+              {quickLinks.map((link) => (
+                <li key={link.name}>
+                  <Link
+                    to={link.href}
+                    className="text-lg md:text-xl font-bold hover:text-primary-500 transition-colors flex items-center gap-3 group w-fit"
+                  >
+                    {link.name}
+                    <ArrowUpRight className="h-4 w-4 md:h-5 md:w-5 opacity-0 group-hover:opacity-100 transition-all -translate-x-2 group-hover:translate-x-0" />
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Contact Info */}
-          <div>
-            <h4 className="text-lg font-semibold mb-4">Get In Touch</h4>
-            <p className="text-gray-400 mb-2">
-              Ready to work together? Let's discuss your next project.
-            </p>
-            <a
-              href="mailto:sauravluitel.work@gmail.com"
-              className="text-blue-400 hover:text-blue-300 transition-colors"
-            >
-              sauravluitel.work@gmail.com
-            </a>
+          {/* Contact CTA */}
+          <div className="md:col-span-3 space-y-6 md:space-y-10">
+            <h4 className="text-[10px] md:text-xs font-black uppercase tracking-[0.3em] opacity-40">Collaboration</h4>
+            <div className="space-y-4 md:space-y-6">
+              <p className="text-base md:text-lg font-medium opacity-60 leading-relaxed">
+                Have a visionary project in mind? Let's build it together.
+              </p>
+              <a
+                href="mailto:sauravluitel.work@gmail.com"
+                className="inline-block group"
+              >
+                <span className="text-lg md:text-xl font-black text-primary-500 group-hover:underline underline-offset-[8px] md:underline-offset-[12px] transition-all decoration-2 break-all">
+                  sauravluitel.work@gmail.com
+                </span>
+              </a>
+            </div>
           </div>
         </div>
 
-        <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p className="mt-2">© 2025 Saurav Luitel. All rights reserved.</p>
+        {/* Bottom Bar */}
+        <div className="pt-8 md:pt-16 border-t border-slate-200 dark:border-white/5 flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8 text-center md:text-left">
+          <p className="text-[10px] md:text-sm font-black uppercase tracking-widest opacity-40">
+            © {new Date().getFullYear()} Saurav Luitel. Built from scratch in Nepal.
+          </p>
+          <div className="flex items-center gap-3 text-[10px] md:text-sm font-black uppercase tracking-widest opacity-60">
+            <span>Engineering with</span>
+            <Heart className="h-4 w-4 md:h-5 md:w-5 text-rose-500 fill-rose-500 animate-pulse" />
+            <span>& Precision</span>
+          </div>
         </div>
       </div>
     </footer>

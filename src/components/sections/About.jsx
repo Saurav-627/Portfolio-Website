@@ -1,99 +1,107 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Code, Palette, Zap, Users, Server } from 'lucide-react';
-import Card from '../ui/Card';
+import { Server, Globe, Cpu, Layout, Sparkles } from 'lucide-react';
 import profile from '/src/images/portfolio.jpeg';
+
 const About = () => {
   const skills = [
     {
-      icon: Code,
-      title: 'Frontend Development',
-      description: 'Expert in React.js, JavaScript, TypeScript, and modern web technologies.'
+      icon: Layout,
+      title: 'Frontend Mastery',
+      description: 'Expert in React.js, TypeScript, Django(MVT) and Framer Motion for building immersive interfaces.',
+      color: 'text-primary-500',
+      bg: 'bg-primary-500/10'
     },
     {
       icon: Server,
-      title: 'Backend Development',
-      description: 'Experienced in Node.js, Express.js, REST APIs, and database integration with MongoDB, MySQL and PostgreSQL.'
+      title: 'Backend Systems',
+      description: 'Developing scalable architectures with Node.js, Express, Django, and distributed databases.',
+      color: 'text-accent-violet',
+      bg: 'bg-accent-violet/10'
     },
     {
-      icon: Palette,
-      title: 'UI/UX Implementation',
-      description: 'Creating responsive, beautiful interfaces with SCSS, Tailwind CSS, and modern design principles.'
+      icon: Cpu,
+      title: 'Performance First',
+      description: 'Optimizing web vitals and ensuring lightning-fast load times for all users.',
+      color: 'text-amber-500',
+      bg: 'bg-amber-500/10'
     },
     {
-      icon: Zap,
-      title: 'Performance Optimization',
-      description: 'Building fast, efficient applications optimized for all devices and browsers.'
-    },
-    {
-      icon: Users,
-      title: 'Team Collaboration',
-      description: 'Working effectively in agile teams with strong communication and problem-solving skills.'
+      icon: Globe,
+      title: 'Fullstack Vision',
+      description: 'Bridging the gap between design and data to create complete digital solutions.',
+      color: 'text-indigo-500',
+      bg: 'bg-indigo-500/10'
     }
   ];
 
   const technologies = [
-    'JavaScript', 'TypeScript', 'React.js', 'HTML5', 'CSS3', 'SCSS',
-    'Tailwind CSS', 'Node.js', 'MySQL', 'Git', 'GitHub', 'Vite', 'Webpack',
-    'Docker', 'Figma', 'Visual Studio Code', 'Lit', 'MongoDB', 'Express.js'
+    'JavaScript', 'TypeScript', 'React.js', 'Node.js', 'MongoDB', 'PostgreSQL', 'Django',
+    'Tailwind CSS', 'SCSS', 'Git', 'Vite', 'Figma'
   ];
 
   return (
-    <section id="about" className="py-20 bg-white dark:bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-4">
-            About Me
-          </h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            I'm a passionate fullstack developer from Kathmandu, Nepal, currently pursuing my 
-            Bachelor's in Computer Application. I specialize in creating modern, responsive 
-            web applications with clean code and exceptional user experiences.
-          </p>
-        </motion.div>
+    <section id="about" className="section-padding relative overflow-hidden">
+      {/* Decorative grid background */}
+      <div className="absolute top-0 right-0 w-full h-full grid-bg opacity-20 pointer-events-none"></div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="flex flex-col lg:flex-row gap-24 items-center">
+          {/* Profile Image with modern frame */}
           <motion.div
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
+            className="relative lg:w-1/2"
           >
-            <img
-              src={profile}
-              alt="Saurav Luitel - Frontend Developer"
-              className="rounded-2xl shadow-2xl w-full max-w-md mx-auto"
-            />
+            <div className="relative group mx-auto max-w-md">
+              <div className="absolute -inset-4 bg-primary-500/20 rounded-[3rem] blur-2xl opacity-0 group-hover:opacity-100 transition duration-1000"></div>
+              <img
+                src={profile}
+                alt="Saurav Luitel"
+                className="relative rounded-[2.5rem] shadow-2xl w-full aspect-square object-cover border-4 border-[var(--bg-card)]"
+              />
+              <div className="absolute -bottom-8 -right-8 glass p-8 rounded-[2rem] hidden md:block border-2 shadow-2xl">
+                <p className="text-5xl font-black text-primary-500 leading-none mb-1">4+</p>
+                <p className="text-[10px] font-black uppercase tracking-[0.2em] opacity-40">Years Learning</p>
+              </div>
+            </div>
           </motion.div>
 
+          {/* About Content */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
+            initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="lg:w-1/2 space-y-10"
           >
-            <p className="text-lg text-gray-600 dark:text-gray-300">
-              My journey in web development began with curiosity about how websites work. 
-              That curiosity evolved into a passion for creating meaningful digital 
-              experiences that solve real problems and delight users.
-            </p>
-            <p className="text-lg text-gray-600 dark:text-gray-300">
-              At PocketPandit, I've honed my skills in React.js development, working on 
-              both greenfield projects and legacy code optimization. I believe in writing 
-              clean, maintainable code and staying updated with the latest industry trends.
-            </p>
-            <div className="flex flex-wrap gap-2">
+            <div className="space-y-6">
+              <div className="inline-flex items-center space-x-3 px-5 py-2 glass rounded-full">
+                <Sparkles className="h-4 w-4 text-primary-500" />
+                <span className="text-xs font-black uppercase tracking-[0.2em] text-primary-500">The Architect's Story</span>
+              </div>
+              <h3 className="text-5xl md:text-7xl font-black leading-tight tracking-tighter">
+                Crafting Digital Gems in <br />
+                <span className="text-gradient">Kathmandu, Nepal</span>
+              </h3>
+            </div>
+
+            <div className="space-y-8 text-xl font-medium opacity-70 leading-relaxed italic">
+              <p>
+                "I'm a visionary Fullstack Developer finishing my Bachelor's in
+                Computer Application. My mission is to build digital products that aren't
+                just functional, but truly memorable experiences."
+              </p>
+            </div>
+
+            {/* Tech chips */}
+            <div className="flex flex-wrap gap-3">
               {technologies.map((tech) => (
                 <span
                   key={tech}
-                  className="px-3 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 rounded-full text-sm font-medium"
+                  className="px-6 py-3 glass rounded-2xl text-xs font-black uppercase tracking-widest hover:text-primary-500 transition-all border border-transparent hover:border-primary-500/20"
                 >
                   {tech}
                 </span>
@@ -102,26 +110,26 @@ const About = () => {
           </motion.div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Skill Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10 mt-12 md:mt-32">
           {skills.map((skill, index) => (
             <motion.div
               key={skill.title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
               viewport={{ once: true }}
+              className="card-premium group"
             >
-              <Card hover className="p-6 text-center h-full">
-                <div className="p-3 bg-blue-100 dark:bg-blue-900 rounded-full w-fit mx-auto mb-4">
-                  <skill.icon className="h-8 w-8 text-blue-600 dark:text-blue-400" />
-                </div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
-                  {skill.title}
-                </h3>
-                <p className="text-gray-600 dark:text-gray-300">
-                  {skill.description}
-                </p>
-              </Card>
+              <div className={`p-5 ${skill.bg} ${skill.color} rounded-2xl w-fit mb-8 group-hover:scale-110 transition-transform`}>
+                <skill.icon className="h-8 w-8" />
+              </div>
+              <h4 className="text-2xl font-black mb-4 tracking-tight">
+                {skill.title}
+              </h4>
+              <p className="font-medium opacity-60 leading-relaxed text-sm">
+                {skill.description}
+              </p>
             </motion.div>
           ))}
         </div>

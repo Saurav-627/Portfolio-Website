@@ -2,15 +2,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 
 const Card = ({ children, className = '', hover = false }) => {
-  const baseClasses = 'bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700';
-  const hoverClasses = hover ? 'transition-all duration-300 hover:shadow-xl hover:-translate-y-1' : '';
-
   return (
     <motion.div
-      className={`${baseClasses} ${hoverClasses} ${className}`}
+      className={`card-premium ${hover ? 'hover:scale-[1.02]' : ''} ${className}`}
       initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      viewport={{ once: true }}
     >
       {children}
     </motion.div>
