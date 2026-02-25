@@ -29,7 +29,7 @@ const Footer = () => {
               </div>
               <span className="text-2xl md:text-3xl font-black tracking-tighter">SAURAV</span>
             </Link>
-            <p className="text-lg md:text-2xl font-medium opacity-60 max-w-md leading-relaxed">
+            <p className="text-md md:text-xl font-medium opacity-60 max-w-md leading-relaxed">
               Designing and developing soulful digital experiences that merge elite architecture with human aesthetics.
             </p>
             <div className="flex space-x-4 md:space-x-5">
@@ -77,7 +77,7 @@ const Footer = () => {
                 href="mailto:sauravluitel.work@gmail.com"
                 className="inline-block group"
               >
-                <span className="text-lg md:text-xl font-black text-primary-500 group-hover:underline underline-offset-[8px] md:underline-offset-[12px] transition-all decoration-2 break-all">
+                <span className="text-sm md:text-md font-black text-primary-500 group-hover:underline underline-offset-[8px] md:underline-offset-[12px] transition-all decoration-2 break-all">
                   sauravluitel.work@gmail.com
                 </span>
               </a>

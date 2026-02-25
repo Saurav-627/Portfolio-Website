@@ -24,7 +24,7 @@ const Hero = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8 }}
-            className="mb-6 md:mb-8 inline-flex items-center space-x-2 md:space-x-3 px-4 md:px-6 py-1.5 md:py-2 glass rounded-full"
+            className="mb-6 md:mb-8 hidden md:inline-flex items-center space-x-2 md:space-x-3 px-4 md:px-6 py-1.5 md:py-2 glass rounded-full"
           >
             <Sparkles className="h-3.5 w-3.5 md:h-4 md:w-4 text-primary-500" />
             <span className="text-[10px] md:text-xs font-black uppercase tracking-[0.2em] text-primary-600 dark:text-primary-400">

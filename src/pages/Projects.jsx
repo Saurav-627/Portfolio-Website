@@ -44,7 +44,7 @@ const Projects = () => {
   };
 
   return (
-    <div className="pt-24 md:pt-32 min-h-screen relative overflow-hidden">
+    <div className="pt-12 md:pt-24 md:pt-32 min-h-screen relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute top-0 left-0 w-full h-[400px] bg-gradient-to-b from-primary-500/10 via-primary-500/5 to-transparent pointer-events-none"></div>
 

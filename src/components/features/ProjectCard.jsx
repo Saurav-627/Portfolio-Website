@@ -40,7 +40,7 @@ const ProjectCard = ({ project, index }) => {
           <img
             src={project.image}
             alt={project.title}
-            className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+            className="w-full h-full object-contain transition-transform duration-1000 group-hover:scale-105"
           />
 
           {/* Elite Gradient Overlay */}

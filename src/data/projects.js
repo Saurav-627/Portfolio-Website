@@ -12,8 +12,8 @@ export const projects = [
   {
     id: '2',
     title: 'trikonED',
-    description: 'Education application platform built with Django (MVT) and a responsive UI.',
-    longDescription: 'trikonED is a full-featured education application platform developed using Django’s Model-View-Template (MVT) architecture. The system enables students to explore global universities, manage application workflows, and access guidance on study abroad programs. It includes user authentication, dynamic content for university listings, blog and news sections, and an intuitive, responsive interface optimized for performance. The project is associated with the official trikonED company and serves real users in the international education space.',
+    description: 'Company Project - Education application platform built with Django (MVT) and a responsive UI.',
+    longDescription: 'Company Project - trikonED is a full-featured education application platform developed using Django’s Model-View-Template (MVT) architecture. The system enables students to explore global universities, manage application workflows, and access guidance on study abroad programs. It includes user authentication, dynamic content for university listings, blog and news sections, and an intuitive, responsive interface optimized for performance. The project is associated with the official trikonED company and serves real users in the international education space.',
     image: '/trikoned.png',
     techStack: ['Django', 'Python', 'HTML5', 'CSS3', 'JavaScript', 'PostgreSQL', 'REST APIs', 'Authentication'],
     liveUrl: 'https://trikoned.com',
@@ -21,6 +21,16 @@ export const projects = [
   },
   {
     id: '3',
+    title: 'PocketSoft',
+    description: 'Company Project - Official company website developed with React.js, presenting digital services with a modern and responsive interface.',
+    longDescription: 'Company Project - PocketSoft is the official company website developed as a corporate project using React.js. The platform highlights the company’s digital services, expertise, and portfolio through a clean, structured, and responsive design. Built with reusable React components and optimized performance practices, the website ensures smooth navigation and consistent user experience across devices. This project represents a real-world production deployment aligned with modern web development standards.',
+    image: '/pocketsoft.png',
+    techStack: ['React.js', 'JavaScript', 'HTML5', 'CSS3'],
+    liveUrl: 'https://pocketsoft.net/',
+    featured: true,
+  },
+  {
+    id: '4',
     title: 'E-Commerce Website',
     description: 'Modern e-commerce interface with MERN stack and responsive design',
     longDescription: 'A fully responsive e-commerce web application built with the MERN stack, featuring product catalogs, shopping cart functionality, user authentication, and secure payment integration. Includes full CRUD operations within a dedicated admin dashboard. Styled with Tailwind CSS for rapid UI development and optimized for high performance across all devices.',
@@ -31,7 +41,7 @@ export const projects = [
     featured: true
   },
   {
-    id: '4',
+    id: '5',
     title: 'Doctor Appointment Booking System',
     description: 'Full-featured MERN stack web app for scheduling medical appointments',
     longDescription: 'A robust and scalable doctor appointment booking system developed using the MERN stack. Includes features like user and doctor authentication, appointment scheduling, real-time availability, and secure data handling. The admin dashboard supports full CRUD operations for users, doctors, and appointments. Fully responsive design implemented with Tailwind CSS, optimized for both desktop and mobile experiences.',
@@ -42,7 +52,7 @@ export const projects = [
     featured: true,
   },
   {
-    id: '5',
+    id: '6',
     title: 'Blog App',
     description: 'Blog app using JSONplaceholder API and Tailwind CSS',
     longDescription: 'A responsive blog application built with React.js, Tailwind CSS, and Redux/toolkit. Features include JSONplaceholder API integration, smooth animations, and optimized performance.',
@@ -53,7 +63,7 @@ export const projects = [
     featured: true
   },
   {
-    id: '6',
+    id: '7',
     title: 'Portfolio Website',
     description: 'Personal portfolio showcasing frontend development skills',
     longDescription: 'A modern, responsive portfolio website built with React.js and TypeScript. Features smooth animations with Framer Motion, dark/light mode toggle, and optimized performance. Showcases projects, skills, and professional experience with clean, modern design.',
