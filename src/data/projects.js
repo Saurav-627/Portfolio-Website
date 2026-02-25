@@ -1,7 +1,7 @@
 export const projects = [
   {
     id: '1',
-    title: 'Pocket Pandit Web Application',
+    title: 'Pocket Pandit AI',
     description: 'Company Project - Complete React.js web application built from scratch with modern architecture',
     longDescription: 'Company Project - A comprehensive web application developed at PocketPandit using React.js with clean, modular, and scalable architecture. Features include responsive design with SCSS, third-party library integrations, and optimized performance across all devices. Implemented modern styling techniques with mobile-first design principles.',
     image: '/pocketpandit.png',

@@ -41,4 +41,4 @@ jobs:
           protocol: ftp
           port: 21 
           # This ensures old files not in your build are deleted from the server
-          delete-clean: true
+          dangerous-clean-slate: true
