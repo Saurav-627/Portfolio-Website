@@ -13,7 +13,7 @@ const Hero = () => {
   ];
 
   return (
-    <section id="home" className="relative min-h-[60vh] md:min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-[60vh] mt-8 md:mt-0 md:min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Orbs - Reduced size on mobile */}
       <div className="absolute top-1/4 -left-10 md:-left-20 w-48 md:w-96 h-48 md:h-96 bg-primary-500/10 rounded-full blur-[80px] md:blur-[120px] animate-pulse-slow"></div>
       <div className="absolute bottom-1/4 -right-10 md:-right-20 w-48 md:w-96 h-48 md:h-96 bg-accent-violet/10 rounded-full blur-[80px] md:blur-[120px] animate-pulse-slow animate-delay-200"></div>
