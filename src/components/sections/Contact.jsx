@@ -195,7 +195,7 @@ const Contact = () => {
                         <label className="text-[10px] font-black uppercase tracking-wider text-slate-500 ml-1">Identify Name</label>
                         <input
                           {...register('name', { required: 'Name is required' })}
-                          placeholder="Jane Doe..."
+                          placeholder="Your Full Name..."
                           className="w-full px-3.5 py-2.5 bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-white/5 focus:border-primary-500/50 rounded-xl outline-none text-slate-800 dark:text-white text-xs sm:text-sm placeholder:opacity-40 font-semibold transition-all"
                         />
                         {errors.name && <p className="text-rose-500 text-[10px] font-black uppercase tracking-wider ml-1">{errors.name.message}</p>}
@@ -208,7 +208,7 @@ const Contact = () => {
                             required: 'Email is required',
                             pattern: { value: /^\S+@\S+$/i, message: 'Invalid email structure' }
                           })}
-                          placeholder="jane@example.com"
+                          placeholder="your-email@example.com"
                           className="w-full px-3.5 py-2.5 bg-slate-100 dark:bg-slate-900/60 border border-slate-200 dark:border-white/5 focus:border-primary-500/50 rounded-xl outline-none text-slate-800 dark:text-white text-xs sm:text-sm placeholder:opacity-40 font-semibold transition-all"
                         />
                         {errors.email && <p className="text-rose-500 text-[10px] font-black uppercase tracking-wider ml-1">{errors.email.message}</p>}
