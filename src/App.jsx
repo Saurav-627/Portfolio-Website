@@ -5,18 +5,25 @@ import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
-import Blog from './pages/Blog';
+import CommandPalette from './components/ui/CommandPalette';
+import ScrollToTop from './components/features/ScrollToTop';
 
 function App() {
   return (
     <ThemeProvider>
       <Router>
-        <div className="min-h-screen transition-colors duration-500">
+        <ScrollToTop />
+        <div className="min-h-screen transition-colors duration-500 bg-[var(--bg-main)] text-[var(--text-main)] relative">
+          {/* Premium analog noise texture filter */}
+          <div className="noise-bg" />
+
+          {/* Floating Command Center Activator */}
+          <CommandPalette />
+
           <Header />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/projects" element={<Projects />} />
-            <Route path="/blog" element={<Blog />} />
           </Routes>
           <Footer />
         </div>

@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { BookOpen, Hash, Search, Sparkles } from 'lucide-react';
+import { BookOpen, Hash, Search, Sparkles, BookMarked } from 'lucide-react';
 import { blogPosts } from '../data/blog';
 import BlogCard from '../components/features/BlogCard';
 
@@ -25,76 +25,80 @@ const Blog = () => {
   };
 
   return (
-    <div className="pt-32 min-h-screen relative overflow-hidden">
-      {/* Background decoration */}
-      <div className="absolute top-0 right-0 w-full h-[600px] bg-gradient-to-b from-indigo-500/10 via-indigo-500/5 to-transparent pointer-events-none"></div>
+    <div className="pt-32 pb-24 min-h-screen relative overflow-hidden bg-[var(--bg-main)]">
+      {/* Background decorations */}
+      <div className="aurora-container">
+        <div className="aurora-blob aurora-1 opacity-10" />
+        <div className="aurora-blob aurora-2 opacity-10" />
+        <div className="aurora-blob aurora-3 opacity-10" />
+      </div>
+      <div className="grid-overlay opacity-30" />
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 py-12 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-12 md:mb-20"
+          className="text-center mb-16 md:mb-24"
         >
-          <div className="mb-6 inline-flex items-center space-x-2 px-6 py-2 glass rounded-full">
-            <BookOpen className="h-4 w-4 text-indigo-500" />
-            <span className="text-xs font-black uppercase tracking-[0.2em] text-indigo-500">
+          <div className="mb-6 inline-flex items-center space-x-2.5 px-5 py-2 glass rounded-full border-white/5">
+            <BookOpen className="h-4 w-4 text-primary-400" />
+            <span className="text-[10px] font-black uppercase tracking-[0.25em] text-primary-400">
               Insight Journal
             </span>
           </div>
-          <h1 className="text-6xl md:text-8xl font-black mb-8 tracking-tighter">
-            Elite <span className="text-gradient">Perspectives</span>
+          <h1 className="text-5xl md:text-7xl font-black mb-6 tracking-tighter leading-none">
+            Architectural <span className="text-gradient">Insights</span>
           </h1>
-          <p className="text-xl font-medium opacity-60 max-w-2xl mx-auto leading-relaxed">
-            Exploring the edge of fullstack architecture, engineering patterns, and
-            digital design philosophy.
+          <p className="text-slate-400 text-lg md:text-xl font-medium max-w-2xl mx-auto leading-relaxed">
+            Exploring the edge of fullstack development workflows, React rendering optimizations, and local calendar synchronizations.
           </p>
         </motion.div>
 
-        {/* Search and Filters Bar */}
+        {/* Search and Filters Dashboard */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="max-w-4xl mx-auto mb-16 md:mb-24"
+          transition={{ duration: 0.8, delay: 0.1 }}
+          className="flex flex-col lg:flex-row gap-6 items-center justify-between mb-12 p-6 glass rounded-3xl shadow-2xl"
         >
-          <div className="glass p-8 rounded-[3rem] space-y-8 shadow-xl">
-            <div className="relative">
-              <Search className="absolute left-8 top-1/2 -translate-y-1/2 h-5 w-5 opacity-40" />
-              <input
-                type="text"
-                placeholder="Find an article..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-16 pr-8 py-5 bg-black/5 dark:bg-white/5 border border-transparent focus:border-indigo-500 rounded-2xl outline-none transition-all font-bold"
-              />
-            </div>
+          {/* Search */}
+          <div className="relative w-full lg:w-96">
+            <Search className="absolute left-6 top-1/2 -translate-y-1/2 h-5 w-5 text-slate-500" />
+            <input
+              type="text"
+              placeholder="Search published articles..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              className="w-full pl-14 pr-6 py-4 bg-slate-900/60 border border-white/5 focus:border-primary-500/50 rounded-2xl outline-none text-slate-100 placeholder:text-slate-500 font-bold transition-all text-sm"
+            />
+          </div>
 
-            <div className="flex flex-wrap items-center gap-3">
-              <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] opacity-40 mr-2">
-                <Hash className="h-4 w-4" />
-                <span>Reference Tags</span>
-              </div>
-              {allTags.map((tag) => (
-                <button
-                  key={tag}
-                  onClick={() => setSelectedTag(tag)}
-                  className={`px-6 py-3 rounded-xl text-xs font-black uppercase tracking-widest transition-all border-2 ${selectedTag === tag
-                    ? 'bg-indigo-500 border-indigo-500 text-white shadow-lg shadow-indigo-500/25'
-                    : 'bg-transparent border-black/5 dark:border-white/10 opacity-60 hover:opacity-100 hover:border-indigo-500'
-                    }`}
-                >
-                  {tag}
-                </button>
-              ))}
-            </div>
+          {/* Reference Tags */}
+          <div className="flex flex-wrap items-center justify-center gap-2">
+            {allTags.map((tag) => (
+              <button
+                key={tag}
+                onClick={() => {
+                  setSelectedTag(tag);
+                  setVisiblePosts(4);
+                }}
+                className={`px-4.5 py-2.5 rounded-xl text-xs font-black uppercase tracking-widest transition-all border cursor-pointer ${
+                  selectedTag === tag
+                    ? 'bg-primary-500 border-primary-500 text-white shadow-lg shadow-primary-500/20'
+                    : 'bg-transparent border-white/5 text-slate-400 hover:text-white hover:border-primary-500/30'
+                }`}
+              >
+                {tag}
+              </button>
+            ))}
           </div>
         </motion.div>
 
         {/* Blog Posts Grid */}
         <motion.div
           layout
-          className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20"
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 mb-16"
         >
           <AnimatePresence mode="popLayout">
             {displayedPosts.map((post, index) => (
@@ -103,6 +107,27 @@ const Blog = () => {
           </AnimatePresence>
         </motion.div>
 
+        {/* Empty State */}
+        {displayedPosts.length === 0 && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="text-center py-24 glass rounded-[2.5rem] border border-dashed border-primary-500/20"
+          >
+            <BookMarked className="h-14 w-14 text-slate-600 mx-auto mb-6" />
+            <h3 className="text-2xl font-black mb-3 text-white">No articles found</h3>
+            <p className="text-slate-500 text-sm max-w-sm mx-auto mb-8 font-medium">
+              We couldn't locate any records matching your search queries. Try resetting filters.
+            </p>
+            <button
+              onClick={() => { setSelectedTag('all'); setSearchTerm(''); }}
+              className="btn-outline !px-8 cursor-pointer mx-auto"
+            >
+              Reset Search Parameters
+            </button>
+          </motion.div>
+        )}
+
         {/* Load More Button */}
         {visiblePosts < filteredPosts.length && (
           <motion.div
@@ -110,28 +135,11 @@ const Blog = () => {
             whileInView={{ opacity: 1 }}
             className="text-center mt-12"
           >
-            <button onClick={loadMore} className="btn-outline !px-16 !py-6 text-lg font-black uppercase tracking-[0.2em] !border-indigo-500 !text-indigo-500 hover:!bg-indigo-500 hover:!text-white">
-              Access More Articles
-            </button>
-          </motion.div>
-        )}
-
-        {/* Empty State */}
-        {displayedPosts.length === 0 && (
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="text-center py-32 glass rounded-[3rem] border border-dashed border-indigo-500/30"
-          >
-            <Sparkles className="h-16 w-16 text-indigo-500/40 mx-auto mb-8" />
-            <p className="text-3xl font-black mb-8">
-              No insights found.
-            </p>
             <button
-              onClick={() => { setSelectedTag('all'); setSearchTerm(''); }}
-              className="btn-outline !px-12 !border-indigo-500 !text-indigo-500 hover:!bg-indigo-500 hover:!text-white"
+              onClick={loadMore}
+              className="btn-outline !px-12 !py-4 text-xs font-black uppercase tracking-[0.25em] mx-auto cursor-pointer"
             >
-              Reset Search
+              Access More Articles
             </button>
           </motion.div>
         )}

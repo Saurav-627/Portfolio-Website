@@ -1,137 +1,189 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Server, Globe, Cpu, Layout, Sparkles } from 'lucide-react';
+import { Compass, Sparkles, Award, Code2, Globe, Heart, Shield } from 'lucide-react';
 import profile from '/src/images/portfolio.jpeg';
 
 const About = () => {
-  const skills = [
+  const manifesto = [
     {
-      icon: Layout,
-      title: 'Frontend Mastery',
-      description: 'Expert in React.js, TypeScript, Django(MVT) and Framer Motion for building immersive interfaces.',
-      color: 'text-primary-500',
-      bg: 'bg-primary-500/10'
+      icon: Shield,
+      title: 'Reliable Architecture',
+      desc: 'Form validation, token auth flows, and adapter systems designed for absolute reliability.'
     },
     {
-      icon: Server,
-      title: 'Backend Systems',
-      description: 'Developing scalable architectures with Node.js, Express, Django, and distributed databases.',
-      color: 'text-accent-violet',
-      bg: 'bg-accent-violet/10'
+      icon: Code2,
+      title: 'Clean Abstractions',
+      desc: 'Sticking to component reusability, strict typings, and decoupling logic from rendering views.'
     },
     {
-      icon: Cpu,
-      title: 'Performance First',
-      description: 'Optimizing web vitals and ensuring lightning-fast load times for all users.',
-      color: 'text-amber-500',
-      bg: 'bg-amber-500/10'
-    },
-    {
-      icon: Globe,
-      title: 'Fullstack Vision',
-      description: 'Bridging the gap between design and data to create complete digital solutions.',
-      color: 'text-indigo-500',
-      bg: 'bg-indigo-500/10'
+      icon: Heart,
+      title: 'Fluid Human UX',
+      desc: 'Micro-animations, responsive layout transitions, and touch target adjustments.'
     }
   ];
 
-  const technologies = [
-    'JavaScript', 'TypeScript', 'React.js', 'Node.js', 'MongoDB', 'PostgreSQL', 'Django',
-    'Tailwind CSS', 'SCSS', 'Git', 'Vite', 'Figma'
-  ];
-
   return (
-    <section id="about" className="section-padding relative overflow-hidden">
-      {/* Decorative grid background */}
-      <div className="absolute top-0 right-0 w-full h-full grid-bg opacity-20 pointer-events-none"></div>
+    <section id="about" className="section-padding relative overflow-hidden bg-transparent">
+      {/* Background decorations */}
+      <div className="absolute top-10 right-10 w-96 h-96 bg-primary-500/5 rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="flex flex-col lg:flex-row gap-24 items-center">
-          {/* Profile Image with modern frame */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="relative lg:w-1/2"
-          >
-            <div className="relative group mx-auto max-w-md">
-              <div className="absolute -inset-4 bg-primary-500/20 rounded-[3rem] blur-2xl opacity-0 group-hover:opacity-100 transition duration-1000"></div>
-              <img
-                src={profile}
-                alt="Saurav Luitel"
-                className="relative rounded-[2.5rem] shadow-2xl w-full aspect-square object-cover border-4 border-[var(--bg-card)]"
-              />
-              <div className="absolute -bottom-8 -right-8 glass p-8 rounded-[2rem] hidden md:block border-2 shadow-2xl">
-                <p className="text-5xl font-black text-primary-500 leading-none mb-1">4+</p>
-                <p className="text-[10px] font-black uppercase tracking-[0.2em] opacity-40">Years Learning</p>
-              </div>
-            </div>
-          </motion.div>
+      <div className="relative z-10 px-4 sm:px-0">
+        <div className="text-center mb-8 md:mb-10">
+          <div className="mb-3 inline-flex items-center space-x-2 px-3.5 py-1.5 glass rounded-full border border-slate-200/80 dark:border-white/5">
+            <Compass className="h-3.5 w-3.5 text-primary-600 dark:text-accent-blue" />
+            <span className="text-[10px] font-black uppercase tracking-widest text-slate-600 dark:text-slate-300">
+              Biography
+            </span>
+          </div>
+          <h2 className="text-3xl md:text-5xl font-black leading-tight tracking-tighter text-slate-900 dark:text-white">
+            The Engineer's <span className="text-gradient">Manifesto</span>
+          </h2>
+          <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm font-medium max-w-xl mx-auto mt-2">
+            A look at my engineering principles, storytelling journey, and stats.
+          </p>
+        </div>
 
-          {/* About Content */}
+        {/* Bento Grid layout */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-5 sm:gap-6 max-w-5xl mx-auto">
+          
+          {/* Card 1: Biography Journey (Col-span 7) */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="lg:w-1/2 space-y-10"
+            className="md:col-span-7 card-premium flex flex-col justify-between"
           >
-            <div className="space-y-6">
-              <div className="inline-flex items-center space-x-3 px-5 py-2 glass rounded-full">
-                <Sparkles className="h-4 w-4 text-primary-500" />
-                <span className="text-xs font-black uppercase tracking-[0.2em] text-primary-500">The Architect's Story</span>
+            <div className="space-y-3.5">
+              <div className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-primary-600 dark:text-accent-blue">
+                <Sparkles className="h-4 w-4" />
+                The Profile
               </div>
-              <h3 className="text-5xl md:text-7xl font-black leading-tight tracking-tighter">
-                Crafting Digital Gems in <br />
-                <span className="text-gradient">Kathmandu, Nepal</span>
+              <h3 className="text-lg sm:text-xl font-black text-slate-900 dark:text-white font-heading leading-tight">
+                Engineering scalable web applications & impactful user experiences.
               </h3>
-            </div>
-
-            <div className="space-y-8 text-xl font-medium opacity-70 leading-relaxed italic">
-              <p>
-                "I'm a visionary Fullstack Developer finishing my Bachelor's in
-                Computer Application. My mission is to build digital products that aren't
-                just functional, but truly memorable experiences."
+              <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm font-medium leading-relaxed">
+                Detail-oriented and adaptable developer with experience building scalable web applications. Skilled in React.js, SCSS, Tailwind CSS, Django, and RESTful APIs. Proven ability to enhance legacy systems, work in agile teams, and deliver responsive, accessible interfaces focused on clean code, performance optimization, and measurable product results.
               </p>
             </div>
 
-            {/* Tech chips */}
-            <div className="flex flex-wrap gap-3">
-              {technologies.map((tech) => (
+            <div className="flex flex-wrap gap-2 mt-4 border-t border-slate-200/80 dark:border-white/5 pt-3.5">
+              {['Kathmandu, Nepal', 'BCA @ Bhaktapur Multiple Campus', 'React.js & Django', 'Full-Stack Engineering'].map((tag) => (
                 <span
-                  key={tech}
-                  className="px-6 py-3 glass rounded-2xl text-xs font-black uppercase tracking-widest hover:text-primary-500 transition-all border border-transparent hover:border-primary-500/20"
+                  key={tag}
+                  className="px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 border border-slate-200/80 dark:bg-slate-900 dark:border-white/5 text-[9px] font-black uppercase tracking-widest dark:text-slate-400"
                 >
-                  {tech}
+                  {tag}
                 </span>
               ))}
             </div>
           </motion.div>
-        </div>
 
-        {/* Skill Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10 mt-12 md:mt-32">
-          {skills.map((skill, index) => (
-            <motion.div
-              key={skill.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              viewport={{ once: true }}
-              className="card-premium group"
-            >
-              <div className={`p-5 ${skill.bg} ${skill.color} rounded-2xl w-fit mb-8 group-hover:scale-110 transition-transform`}>
-                <skill.icon className="h-8 w-8" />
+          {/* Card 2: Profile Picture & Stats (Col-span 5) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="md:col-span-5 card-premium flex flex-col justify-between relative overflow-hidden group"
+          >
+            {/* Visual background image with zoom */}
+            <div className="absolute inset-0 z-0 opacity-10 group-hover:scale-105 transition-transform duration-700 select-none pointer-events-none">
+              <img src={profile} alt="Saurav" className="w-full h-full object-cover" />
+            </div>
+
+            <div className="relative z-10 space-y-4">
+              <div className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-primary-500 dark:text-primary-400">
+                <Award className="h-4 w-4" />
+                Performance Metrics
               </div>
-              <h4 className="text-2xl font-black mb-4 tracking-tight">
-                {skill.title}
+
+              {/* Stats Counters */}
+              <div className="grid grid-cols-2 gap-4 pt-2">
+                <div className="space-y-0.5">
+                  <h4 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-heading leading-none">4+</h4>
+                  <p className="text-[9px] font-black uppercase tracking-widest text-slate-500">Years Learning</p>
+                </div>
+                <div className="space-y-0.5">
+                  <h4 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-heading leading-none">15+</h4>
+                  <p className="text-[9px] font-black uppercase tracking-widest text-slate-500">Deployments</p>
+                </div>
+                <div className="space-y-0.5">
+                  <h4 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-heading leading-none">98%</h4>
+                  <p className="text-[9px] font-black uppercase tracking-widest text-slate-500">Avg Lighthouses</p>
+                </div>
+                <div className="space-y-0.5">
+                  <h4 className="text-2xl sm:text-3xl font-black text-slate-900 dark:text-white font-heading leading-none">0.0</h4>
+                  <p className="text-[9px] font-black uppercase tracking-widest text-slate-500">Layout Shift (CLS)</p>
+                </div>
+              </div>
+            </div>
+
+            <div className="relative z-10 flex items-center gap-2 text-[9px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 border-t border-slate-200/80 dark:border-white/5 pt-3.5 mt-4">
+              <Globe className="h-4 w-4 text-primary-600 dark:text-accent-blue" />
+              <span>Production Systems Delivered</span>
+            </div>
+          </motion.div>
+
+          {/* Card 3: Education & Active Focus (Col-span 5) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.15 }}
+            viewport={{ once: true }}
+            className="md:col-span-5 card-premium flex flex-col justify-between"
+          >
+            <div className="space-y-3">
+              <span className="text-[10px] font-black uppercase tracking-widest text-primary-600 dark:text-accent-blue">
+                Academic & Professional Standing
+              </span>
+              <h4 className="text-base sm:text-lg font-black text-slate-900 dark:text-white font-heading leading-tight">
+                Bachelor of Computer Application
               </h4>
-              <p className="font-medium opacity-60 leading-relaxed text-sm">
-                {skill.description}
+              <p className="text-slate-600 dark:text-slate-300 text-xs sm:text-sm font-medium leading-relaxed">
+                Bhaktapur Multiple Campus, Nepal (June 2022 - Present). Combining rigorous academic foundations in computer applications with real-world fullstack production deployments and frontend architectures.
               </p>
-            </motion.div>
-          ))}
+            </div>
+
+            <div className="flex items-center gap-2 text-[9px] font-black uppercase tracking-widest text-slate-500 dark:text-slate-400 border-t border-slate-200/80 dark:border-white/5 pt-3.5 mt-4">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              <span>Bhaktapur Multiple Campus • June 2022 - Present</span>
+            </div>
+          </motion.div>
+
+          {/* Card 4: Manifesto/Core Principles (Col-span 7) */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="md:col-span-7 card-premium space-y-4"
+          >
+            <div className="flex items-center gap-2 text-xs font-black uppercase tracking-widest text-primary-500 dark:text-primary-400">
+              <Code2 className="h-4 w-4" />
+              Engineering Manifesto
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
+              {manifesto.map((item, idx) => {
+                const Icon = item.icon;
+                return (
+                  <div key={idx} className="space-y-2">
+                    <div className="p-2 bg-slate-100 dark:bg-slate-900 border border-slate-200/80 dark:border-white/5 rounded-lg text-primary-500 dark:text-primary-400 w-fit">
+                      <Icon className="h-3.5 w-3.5" />
+                    </div>
+                    <h5 className="text-xs sm:text-sm font-black text-slate-900 dark:text-white leading-tight font-heading">
+                      {item.title}
+                    </h5>
+                    <p className="text-slate-500 text-[10px] sm:text-[11px] font-medium leading-relaxed">
+                      {item.desc}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>

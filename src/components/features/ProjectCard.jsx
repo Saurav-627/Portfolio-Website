@@ -1,99 +1,107 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, ArrowUpRight, Globe } from 'lucide-react';
+import { ExternalLink, Github, BookOpen } from 'lucide-react';
 
-const ProjectCard = ({ project, index }) => {
-  // Format index as 01, 02, etc.
+const ProjectCard = ({ project, index, onOpenCaseStudy }) => {
   const displayIndex = (index + 1).toString().padStart(2, '0');
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 30 }}
+      initial={{ opacity: 0, y: 35 }}
       whileInView={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: index * 0.1 }}
+      transition={{ duration: 0.8, delay: index * 0.08 }}
       viewport={{ once: true }}
-      className="group relative h-full w-full"
+      className="group relative flex flex-col h-full rounded-2xl border border-slate-200/80 dark:border-[rgba(99,102,241,0.12)] bg-white dark:bg-[#0F172A] overflow-hidden hover:border-primary-500/40 transition-all duration-500 shadow-[0_10px_30px_rgba(0,0,0,0.04)] dark:shadow-xl hover:shadow-[0_20px_40px_rgba(99,102,241,0.1)]"
     >
-      <div className="card-premium h-full flex flex-col p-3 md:p-4 overflow-hidden transition-all duration-500 hover:shadow-[0_40px_80px_-15px_rgba(16,185,129,0.15)]">
+      {/* Visual Showcase Card Media */}
+      <div className="relative aspect-[16/10] overflow-hidden bg-slate-50/80 dark:bg-[var(--bg-main)] border-b border-slate-100 dark:border-[rgba(99,102,241,0.1)] select-none">
+        <img
+          src={project.image}
+          alt={project.title}
+          className="w-full h-full object-contain p-3 sm:p-4 transition-transform duration-1000 group-hover:scale-105"
+        />
 
-        {/* Header Metadata */}
-        <div className="flex justify-between items-center mb-4 md:mb-6 px-1 md:px-2">
-          <span className="text-[8px] md:text-[10px] font-black uppercase tracking-[0.3em] md:tracking-[0.4em] opacity-30 group-hover:opacity-100 transition-opacity">
-            Project {displayIndex}
+        {/* Dark Mode Gradient Overlay */}
+        <div className="absolute inset-0 dark:bg-gradient-to-t dark:from-[#0F172A]/90 dark:via-transparent dark:to-transparent opacity-0 dark:opacity-60 dark:group-hover:opacity-80 transition-opacity duration-500 pointer-events-none" />
+
+        {/* Floating Category Tag */}
+        <div className="absolute top-3 left-3 flex gap-2">
+          <span className="px-3 py-1 backdrop-blur-md bg-white/90 text-slate-800 border border-slate-200/90 shadow-sm dark:bg-black/60 dark:border-white/10 dark:text-white rounded-full text-[9px] font-black uppercase tracking-wider">
+            {project.techStack[0]}
           </span>
-          <div className="flex gap-2 md:gap-3">
-            {project.githubUrl && (
-              <a href={project.githubUrl} target="_blank" rel="noopener noreferrer" className="opacity-40 hover:opacity-100 hover:text-primary-500 transition-all p-1">
-                <Github className="h-3.5 w-3.5 md:h-4 md:w-4" />
-              </a>
-            )}
-            {project.liveUrl && (
-              <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="opacity-40 hover:opacity-100 hover:text-primary-500 transition-all p-1">
-                <Globe className="h-3.5 w-3.5 md:h-4 md:w-4" />
-              </a>
-            )}
-          </div>
         </div>
 
-        {/* Visual Showcase Area */}
-        <div className="relative aspect-[16/10] rounded-[1rem] md:rounded-[1.5rem] overflow-hidden group-hover:shadow-2xl transition-all duration-700 border border-[var(--border-color)]">
-          <img
-            src={project.image}
-            alt={project.title}
-            className="w-full h-full object-contain transition-transform duration-1000 group-hover:scale-105"
-          />
+        {/* Action Link Icons Floating Right */}
+        <div className="absolute top-3 right-3 flex gap-2 z-20">
+          {project.githubUrl && (
+            <a
+              href={project.githubUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full backdrop-blur-md bg-white/90 text-slate-700 border border-slate-200/90 shadow-sm hover:text-primary-600 hover:border-primary-400 dark:bg-black/65 dark:border-white/15 dark:text-white dark:hover:text-accent-blue hover:scale-110 transition-all"
+              title="GitHub Repository"
+            >
+              <Github className="h-3.5 w-3.5" />
+            </a>
+          )}
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2 rounded-full backdrop-blur-md bg-white/90 text-slate-700 border border-slate-200/90 shadow-sm hover:text-primary-600 hover:border-primary-400 dark:bg-black/65 dark:border-white/15 dark:text-white dark:hover:text-primary-500 hover:scale-110 transition-all"
+              title="Live Deployment"
+            >
+              <ExternalLink className="h-3.5 w-3.5" />
+            </a>
+          )}
+        </div>
+      </div>
 
-          {/* Elite Gradient Overlay */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-40 md:opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      {/* Content details */}
+      <div className="p-4 sm:p-5 flex flex-col flex-grow relative z-10">
+        <div className="flex justify-between items-center mb-2">
+          <span className="text-[10px] font-black uppercase tracking-[0.25em] text-primary-600 dark:text-accent-blue opacity-80 group-hover:opacity-100 transition-opacity">
+            PROJ // {displayIndex}
+          </span>
+          <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest">
+            {project.featured ? 'Featured' : 'System'}
+          </span>
+        </div>
 
-          {/* Hover Action Badge - Always visible centered on small mobile */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 md:group-hover:opacity-100 transition-all duration-500 scale-75 group-hover:scale-100 hidden sm:block">
-            <div className="bg-white/10 backdrop-blur-xl border border-white/20 p-4 md:p-5 rounded-full shadow-2xl">
-              <ArrowUpRight className="h-6 w-6 md:h-8 md:w-8 text-white" />
-            </div>
-          </div>
+        <h3 className="text-lg md:text-xl font-black mb-2 tracking-tight text-slate-900 dark:text-white group-hover:text-primary-600 dark:group-hover:text-primary-400 transition-colors leading-tight font-heading">
+          {project.title}
+        </h3>
 
-          {/* Type Badge */}
-          <div className="absolute bottom-3 left-3 md:bottom-6 md:left-6 flex gap-2 translate-y-0 md:translate-y-4 md:group-hover:translate-y-0 transition-transform duration-500">
-            <span className="px-3 py-1 md:px-4 md:py-1.5 backdrop-blur-md bg-black/50 border border-white/10 rounded-full text-[8px] md:text-[9px] font-black uppercase tracking-widest text-white">
-              {project.techStack[0]}
+        <p className="text-slate-600 dark:text-slate-400 text-xs sm:text-sm font-medium mb-4 line-clamp-2 md:line-clamp-3 leading-relaxed flex-grow">
+          {project.description}
+        </p>
+
+        {/* Tech Stack Badge Chips */}
+        <div className="flex flex-wrap gap-1.5 mb-4">
+          {project.techStack.slice(0, 3).map((tech) => (
+            <span
+              key={tech}
+              className="text-[9px] font-black uppercase tracking-widest px-2.5 py-0.5 rounded-md bg-slate-100 text-slate-700 border border-slate-200/80 dark:bg-slate-900 dark:border-white/5 dark:text-slate-400 group-hover:text-primary-600 dark:group-hover:text-white group-hover:border-primary-500/30 transition-all"
+            >
+              {tech}
             </span>
-          </div>
+          ))}
+          {project.techStack.length > 3 && (
+            <span className="text-[9px] font-bold px-2 py-0.5 rounded bg-slate-100 text-slate-600 dark:bg-slate-900 dark:text-slate-500">
+              +{project.techStack.length - 3}
+            </span>
+          )}
         </div>
 
-        {/* Content Details Area */}
-        <div className="pt-5 md:pt-8 pb-2 md:pb-4 px-1 md:px-2 flex flex-col flex-grow">
-          <h3 className="text-xl md:text-3xl font-black mb-3 md:mb-4 tracking-tighter leading-tight group-hover:text-primary-500 transition-colors">
-            {project.title}
-          </h3>
-
-          <p className="font-medium opacity-50 mb-6 md:mb-8 line-clamp-2 md:line-clamp-3 leading-relaxed text-xs md:text-sm flex-grow">
-            {project.description}
-          </p>
-
-          {/* Tech Ribbon */}
-          <div className="flex flex-wrap gap-x-3 gap-y-1 mt-auto">
-            {project.techStack.slice(0, 3).map((tech) => (
-              <span
-                key={tech}
-                className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-primary-600 dark:text-primary-400 opacity-60 group-hover:opacity-100 transition-opacity"
-              >
-                #{tech}
-              </span>
-            ))}
-          </div>
-        </div>
-
-        {/* Full Click Area Overlay */}
-        {project.liveUrl && (
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="absolute inset-0 z-10 cursor-pointer"
-            aria-label={`View ${project.title}`}
-          />
-        )}
+        {/* Case Study Call to Action Button */}
+        <button
+          onClick={() => onOpenCaseStudy && onOpenCaseStudy(project)}
+          className="w-full py-2.5 px-4 rounded-xl bg-slate-50 hover:bg-primary-50 dark:bg-slate-900 dark:hover:bg-primary-500/10 border border-slate-200 hover:border-primary-300 dark:border-white/5 dark:hover:border-primary-500/30 text-xs font-black uppercase tracking-[0.2em] text-slate-700 hover:text-primary-600 dark:text-slate-300 dark:hover:text-white flex items-center justify-center gap-2 transition-all duration-300 cursor-pointer"
+        >
+          <BookOpen className="h-3.5 w-3.5 text-primary-500 dark:text-primary-400" />
+          Analyze Case Study
+        </button>
       </div>
     </motion.div>
   );
